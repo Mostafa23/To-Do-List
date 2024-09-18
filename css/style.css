@@ -1,0 +1,181 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.todo-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#taskInput {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#addTaskBtn {
+  padding: 10px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#addTaskBtn:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+ul#taskList {
+  list-style: none;
+  margin-top: 20px;
+  padding: 0;
+}
+
+li {
+  background-color: #f8f9fa;
+  margin: 10px 0;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  animation: add-task 0.5s ease;
+}
+
+li.completed {
+  background-color: #d4edda;
+  animation: toggle-complete 0.5s ease;
+}
+
+li.completed .task-text {
+  text-decoration: line-through;
+}
+
+li .task-text {
+  flex: 1;
+  overflow-x: auto;
+  cursor: pointer;
+}
+
+li button {
+  display: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 5px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+li:hover .edit {
+  display: block;
+  transform: translateX(-10px);
+}
+
+li:hover .delete {
+  display: block;
+  transform: translateX(10px);
+}
+
+li .edit {
+  position: absolute;
+  left: 10px;
+  opacity: 0;
+}
+
+li .delete {
+  position: absolute;
+  right: 10px;
+  opacity: 0;
+}
+
+li .delete:hover,li .edit:hover {
+  opacity: 0.4;
+  color: red;
+}
+
+.notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #28a745;
+  color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  display: none;
+  opacity: 0;
+  transition: opacity 2s ease, transform 2s ease;
+}
+
+.notification.show {
+  display: block;
+  opacity: 0.8;
+  transform: translateY(0);
+}
+
+/* Animations */
+@keyframes add-task {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes remove-task {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+@keyframes toggle-complete {
+  from {
+    background-color: #f8f9fa;
+  }
+  to {
+    background-color: #d4edda;
+  }
+}
