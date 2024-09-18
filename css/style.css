@@ -19,12 +19,15 @@ body {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  width: 100%;
-  max-width: 400px;
+  max-width: 90%; 
+  max-height: 80%;
+  width: 50vw;
+  height: auto;
 }
 
 h1 {
   text-align: center;
+  font-size: 2.5vw; 
   margin-bottom: 20px;
 }
 
@@ -39,10 +42,14 @@ h1 {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
+
+  max-height: 10vh;
+  font-size: 1.5vw;
 }
 
 #addTaskBtn {
   padding: 10px;
+  max-height: 10vh;
   background-color: #28a745;
   color: #fff;
   border: none;
@@ -50,6 +57,8 @@ h1 {
   cursor: pointer;
   margin-left: 10px;
   transition: background-color 0.3s ease, transform 0.2s ease;
+
+  font-size: 1.5vw;
 }
 
 #addTaskBtn:hover {
@@ -61,6 +70,8 @@ ul#taskList {
   list-style: none;
   margin-top: 20px;
   padding: 0;
+  max-height: 30vh;
+  overflow-y: auto; 
 }
 
 li {
@@ -89,7 +100,12 @@ li.completed .task-text {
 li .task-text {
   flex: 1;
   overflow-x: auto;
+  white-space: nowrap;
+  max-width: 80%; 
+  margin: 0 auto;
   cursor: pointer;
+  
+  font-size: 2vw;
 }
 
 li button {
@@ -123,7 +139,7 @@ li .delete {
   opacity: 0;
 }
 
-li .delete:hover,li .edit:hover {
+li .delete:hover, li .edit:hover {
   opacity: 0.4;
   color: red;
 }
@@ -139,7 +155,7 @@ li .delete:hover,li .edit:hover {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
   display: none;
   opacity: 0;
-  transition: opacity 2s ease, transform 2s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .notification.show {
